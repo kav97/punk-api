@@ -1,0 +1,6 @@
+@use "./assets/sass/_variables.scss" as *;
+
+.app {
+  background-color: $color-black;
+  color: $color-white;
+}
