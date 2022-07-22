@@ -1,0 +1,16 @@
+@use "../../assets/sass/_variables.scss" as *;
+
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 25px;
+    align-items: center;
+}
+
+@media screen and (min-width: 992px) {
+  .card-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+}
