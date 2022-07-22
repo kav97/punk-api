@@ -2,15 +2,7 @@
 
 .card-list {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(275px, max-content));
     gap: 25px;
-    align-items: center;
-}
-
-@media screen and (min-width: 992px) {
-  .card-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-  }
+    margin: 20px;
 }
