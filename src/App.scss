@@ -8,4 +8,7 @@
 .app {
   background-color: $color-black;
   color: $color-white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

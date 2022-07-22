@@ -7,9 +7,7 @@ const App = () => {
   return (
     <>
       <div className="app">
-        <main>
-          <CardList beers={beers} />
-        </main>
+        <CardList beers={beers} />
       </div>
     </>
   );
