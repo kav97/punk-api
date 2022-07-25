@@ -1,9 +1,26 @@
 import './App.scss';
-import beers from './data/beers';
+//import beers from './data/beers';
 import CardList from './components/CardList/CardList'
-console.log(beers);
+import { useState, useEffect } from "react";
+
 
 const App = () => { 
+
+  const [beers, setBeers] = useState([]);
+
+  const getBeers = async () => {
+    const response = await fetch("https://api.punkapi.com/v2/beers");
+    const data = await response.json();
+
+    setBeers(data);
+  };
+
+  useEffect(() => {
+    getBeers();
+  }, [])
+  
+  console.log(beers);
+
   return (
     <>
       <div className="app">

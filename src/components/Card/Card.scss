@@ -36,4 +36,10 @@
     &::-webkit-scrollbar {
         display: none;
     }
+
+    .card-back {
+        &__description {
+            font-style: italic;
+        }
+    }
 }

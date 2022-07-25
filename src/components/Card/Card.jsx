@@ -12,9 +12,15 @@ const Card = ({ name, img, abv, ph, year, description }) => {
       <img className="card__img" src={img} alt={name} />
       <h2 className="card__name">{name}</h2>
       <div className="card-content">
-        <p className="card-content__year"><b>First Brewed:</b> {year}</p>
-        <p className="card-content__abv"><b>ABV:</b> {abv}%</p>
-        <p className="card-content__ph"><b>pH:</b> {ph}</p>
+        <p className="card-content__year">
+          <b>First Brewed:</b> {year}
+        </p>
+        <p className="card-content__abv">
+          <b>ABV:</b> {abv}%
+        </p>
+        <p className="card-content__ph">
+          <b>pH:</b> {ph}
+        </p>
       </div>
     </>
   );
