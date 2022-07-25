@@ -12,7 +12,7 @@
     border-radius: 16px;
     margin: 1rem;
     box-shadow: 2px 2px $color-white;
-    overflow-y: scroll;
+    
     
     &:hover {
       cursor: pointer;
@@ -38,8 +38,18 @@
     }
 
     .card-back {
+        overflow-y: scroll;
+
         &__description {
             font-style: italic;
+        }
+
+        &::-webkit-scrollbar {
+            width: 2px;
+
+            &-thumb {
+                background: $color-secondary;
+            }
         }
     }
 }
