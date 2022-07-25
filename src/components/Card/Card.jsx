@@ -2,7 +2,7 @@ import "./Card.scss";
 import { useState } from "react";
 
 const Card = ({ name, img, abv, ph, year, description }) => {
-  const [showInfo, setShowInfo] = useState(false);
+  const [showInfo, setShowInfo] = useState();
   const handleClick = () => {
     setShowInfo(!showInfo);
   };
