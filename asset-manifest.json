@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/punk-api/static/css/main.b18016d8.css",
-    "main.js": "/punk-api/static/js/main.400529d7.js",
+    "main.css": "/punk-api/static/css/main.a3c507c0.css",
+    "main.js": "/punk-api/static/js/main.acedccba.js",
     "static/js/787.ae7c3095.chunk.js": "/punk-api/static/js/787.ae7c3095.chunk.js",
     "static/media/doge.jpg": "/punk-api/static/media/doge.18dc41312eb7ffbdd911.jpg",
     "index.html": "/punk-api/index.html",
-    "main.b18016d8.css.map": "/punk-api/static/css/main.b18016d8.css.map",
-    "main.400529d7.js.map": "/punk-api/static/js/main.400529d7.js.map",
+    "main.a3c507c0.css.map": "/punk-api/static/css/main.a3c507c0.css.map",
+    "main.acedccba.js.map": "/punk-api/static/js/main.acedccba.js.map",
     "787.ae7c3095.chunk.js.map": "/punk-api/static/js/787.ae7c3095.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b18016d8.css",
-    "static/js/main.400529d7.js"
+    "static/css/main.a3c507c0.css",
+    "static/js/main.acedccba.js"
   ]
 }
