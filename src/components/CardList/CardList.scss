@@ -5,6 +5,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
     gap: 25px;
     margin: 20px;
+    justify-content: center;
 
     &__no-display {
         font-size: 1.75rem;
