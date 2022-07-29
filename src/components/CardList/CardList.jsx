@@ -14,7 +14,17 @@ const CardList = ({ beers }) => {
     />
   ));
 
-  return <div className="card-list">{cardListJSX}</div>;
+  return (
+    <div className="card-list">
+      {beers.length > 0 ? (
+        cardListJSX
+      ) : (
+        <p className="card-list__no-display">
+          Sorry, no beers are displayed with that search.
+        </p>
+      )}
+    </div>
+  );
 };
 
 export default CardList;
