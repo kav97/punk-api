@@ -1,5 +1,5 @@
 import "./FilterItem.scss";
-const FilterItem = ({  }) => {
+const FilterItem = () => {
     return ;
 };
   

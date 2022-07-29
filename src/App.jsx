@@ -2,8 +2,8 @@ import "./App.scss";
 import CardList from "./components/CardList/CardList";
 import SearchBox from "./components/SearchBox/SearchBox";
 import Header from "./components/Header/Header";
-import FilterList from "./components/FilterList/FilterList";
-import FilterItem from "./components/FilterItem/FilterItem";
+//import FilterList from "./components/FilterList/FilterList";
+//import FilterItem from "./components/FilterItem/FilterItem";
 import { useState, useEffect } from "react";
 
 //import Main from "./containers/Main/Main"
@@ -38,11 +38,11 @@ const App = () => {
   });
 
   //filter by ph < 4
-  const [phFilter, setPhFilter] = useState(false);
+ // const [phFilter, setPhFilter] = useState(false);
 
-  const handleCheckBox = (event) => {
-    setPhFilter(event.target.value)
-  }
+  // const handleCheckBox = (event) => {
+  //   setPhFilter(event.target.value)
+  // }
   
   useEffect(() => {
     getBeers();
@@ -53,12 +53,6 @@ const App = () => {
       <div className="app">
         <Header />
         <SearchBox handleInput={handleInput} searchTerm={searchTerm} />
-        {/* <RadioButtons
-          label="Filter by:"
-          options={["All", "ABV (>6.0%)", "Range (Brewed before 2010)", "Acidic pH (< 4)"]}
-          onChange={handleRadioChange}
-          selected={filter}
-        /> */}
         <CardList beers={filteredBeers} />
       </div>
     </>

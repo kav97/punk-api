@@ -1,6 +1,6 @@
 import "./FilterList.scss";
 
-const FilterList = ({  }) => {
+const FilterList = () => {
   return ;
 };
 
