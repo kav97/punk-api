@@ -1,0 +1,13 @@
+@use "../../assets/sass/_variables.scss" as *;
+
+.header {
+    font-size: 1.75rem;
+    text-align: center;
+    margin: 2rem 0 2rem 0;
+
+    &__image {
+        height: auto;
+        width:30px;
+        border-radius: 50%;
+    }
+}    

@@ -1,6 +1,7 @@
 import "./App.scss";
 import CardList from "./components/CardList/CardList";
 import SearchBox from "./components/SearchBox/SearchBox";
+import Header from "./components/Header/Header";
 //import RadioButtons from "./components/RadioButtons/RadioButtons";
 import { useState, useEffect } from "react";
 
@@ -44,6 +45,7 @@ const App = () => {
   return (
     <>
       <div className="app">
+        <Header />
         <SearchBox handleInput={handleInput} searchTerm={searchTerm} />
         {/* <RadioButtons
           label="Filter by:"
