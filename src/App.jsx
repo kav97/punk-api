@@ -2,7 +2,7 @@ import "./App.scss";
 import CardList from "./components/CardList/CardList";
 import SearchBox from "./components/SearchBox/SearchBox";
 import Header from "./components/Header/Header";
-//import FilterList from "./components/FilterList/FilterList";
+import FilterList from "./components/FilterList/FilterList";
 //import FilterItem from "./components/FilterItem/FilterItem";
 import { useState, useEffect } from "react";
 
@@ -32,18 +32,20 @@ const App = () => {
     setSearchTerm(cleanInput);
   };
 
-  const filteredBeers = beers.filter((beer) => {
+  let filteredBeers = beers.filter((beer) => {
     const beerLower = beer.name.toLowerCase();
     return beerLower.includes(searchTerm);
   });
 
-  //filter by ph < 4
- // const [phFilter, setPhFilter] = useState(false);
+  //filter by ph < 4/////////////////
+  let [phFilter, setPhFilter] = useState(false);
 
-  // const handleCheckBox = (event) => {
-  //   setPhFilter(event.target.value)
-  // }
-  
+  const handlePhFilter = () => {
+    setPhFilter(!phFilter)
+  }
+
+  phFilter && (filteredBeers = beers.filter(beer => beer.ph < 4))
+  ///////////////////////////////////
   useEffect(() => {
     getBeers();
   }, []);
@@ -53,6 +55,7 @@ const App = () => {
       <div className="app">
         <Header />
         <SearchBox handleInput={handleInput} searchTerm={searchTerm} />
+        <FilterList handleAcidityFilter={handlePhFilter}/>
         <CardList beers={filteredBeers} />
       </div>
     </>

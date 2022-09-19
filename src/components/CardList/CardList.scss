@@ -3,6 +3,7 @@
 .card-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+    min-height: 100vh;
     gap: 25px;
     margin: 20px;
     justify-content: center;
