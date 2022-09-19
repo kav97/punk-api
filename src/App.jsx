@@ -3,62 +3,80 @@ import CardList from "./components/CardList/CardList";
 import SearchBox from "./components/SearchBox/SearchBox";
 import Header from "./components/Header/Header";
 import FilterList from "./components/FilterList/FilterList";
-//import FilterItem from "./components/FilterItem/FilterItem";
 import { useState, useEffect } from "react";
-
-//import Main from "./containers/Main/Main"
 
 const App = () => {
   const [beers, setBeers] = useState([]);
-  
-  const getBeers = async () => {
-    const beersArray = [];
-    for (let i = 1; i <= 5; i++) {
-      const url = `https://api.punkapi.com/v2/beers?page=${i}&per_page=80`;
-      const response = await fetch(url);
-      const data = await response.json();
-    
-      Array.prototype.push.apply(beersArray, data);
-    }
-    setBeers(beersArray);
-
-  };
-
-  //search by entering letters into searchbox
   const [searchTerm, setSearchTerm] = useState("");
+  const [abv, setAbv] = useState("");
+  const [brewed, setBrewed] = useState("");
+  const [ph, setPh] = useState(false);
+
+  const getBeers = async () => {
+    try {
+      const beersArray = [];
+      for (let i = 1; i <= 5; i++) {
+        const response = await fetch(`https://api.punkapi.com/v2/beers?page=${i}&per_page=80&${abv}&${brewed}`);
+
+        if (response.status !== 200) throw new Error("Cannot connect to API")
+
+        const beerData = await response.json();
+        Array.prototype.push.apply(beersArray, beerData);
+      }
+  
+      if (ph === true) setBeers(beersArray.filter(beer => beer.ph < 4))
+      else setBeers(beersArray)
+    }
+    catch(error) {
+      alert(error.message);
+    }
+  }
+
+  useEffect(() => {
+    getBeers();
+  }, [abv, brewed, ph])
 
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
 
-  let filteredBeers = beers.filter((beer) => {
+  const filteredBeers = beers.filter((beer) => {
     const beerLower = beer.name.toLowerCase();
     return beerLower.includes(searchTerm);
   });
 
-  //filter by ph < 4/////////////////
-  let [phFilter, setPhFilter] = useState(false);
-
-  const handlePhFilter = () => {
-    setPhFilter(!phFilter)
+  const handleAbvCheckbox = (event) => {
+    if (event.target.checked === true) {
+      setAbv("abv_gt=6");
+      return;
+    }
+    setAbv("");
   }
 
-  phFilter && (filteredBeers = beers.filter(beer => beer.ph < 4))
-  ///////////////////////////////////
-  useEffect(() => {
-    getBeers();
-  }, []);
+  const handleBrewedCheckbox = (event) => {
+    if (event.target.checked === true) {
+      setBrewed("brewed_before=01/2010");
+      return;
+    }
+    setBrewed("");
+  }
+
+  const handlePhCheckbox = (event) => {
+    if (event.target.checked === true) {
+      setPh(true);
+      return;
+    }
+    setPh(false);
+  }
 
   return (
-    <>
-      <div className="app">
-        <Header />
-        <SearchBox handleInput={handleInput} searchTerm={searchTerm} />
-        <FilterList handleAcidityFilter={handlePhFilter}/>
-        <CardList beers={filteredBeers} />
-      </div>
-    </>
+    <div className="app">
+      <Header />
+      <SearchBox handleInput={handleInput} searchTerm={searchTerm} />
+      <FilterList handleAbvCheckbox={handleAbvCheckbox} handleBrewedCheckbox={handleBrewedCheckbox} handlePhCheckbox={handlePhCheckbox}/>
+      <CardList beers={filteredBeers} />
+    </div>
   );
 };
 
