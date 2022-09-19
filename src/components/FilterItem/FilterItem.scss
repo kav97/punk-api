@@ -1,1 +1,13 @@
 @use "../../assets/sass/_variables.scss" as *;
+
+form{
+    display: flex;
+    justify-content: center;
+    
+    .filters-box {
+        margin: 0.5rem 0 0.5rem 0;
+        width: 250px;
+        display: flex;
+        justify-content: space-between;
+    }
+}

@@ -1,4 +1,3 @@
-import "./FilterList.scss";
 import FilterItem from "../FilterItem/FilterItem";
 
 const FilterList = ({ handleAbvCheckbox, handleBrewedCheckbox, handlePhCheckbox} ) => {
