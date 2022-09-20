@@ -34,6 +34,7 @@ const App = () => {
 
   useEffect(() => {
     getBeers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [abv, brewed, ph])
 
   const handleInput = (event) => {
