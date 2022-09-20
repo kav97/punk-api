@@ -1,5 +1,5 @@
 import "./CardList.scss";
-import Card from "../Card/Card";
+import Card from "../../components/Card/Card";
 
 const CardList = ({ beers }) => {
   const cardListJSX = beers.map((beer) => (

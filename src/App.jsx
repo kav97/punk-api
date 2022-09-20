@@ -1,5 +1,5 @@
 import "./App.scss";
-import CardList from "./components/CardList/CardList";
+import CardList from "./containers/CardList/CardList"
 import SearchBox from "./components/SearchBox/SearchBox";
 import Header from "./components/Header/Header";
 import FilterList from "./components/FilterList/FilterList";
