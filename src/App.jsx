@@ -12,7 +12,7 @@ const App = () => {
   const [brewed, setBrewed] = useState("");
   const [ph, setPh] = useState(false);
 
-  const getBeers = async () => {
+  const getBeers = async (abv, brewed, ph) => {
     try {
       const beersArray = [];
       for (let i = 1; i <= 5; i++) {
@@ -33,8 +33,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    getBeers();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    getBeers(abv, brewed, ph);
   }, [abv, brewed, ph])
 
   const handleInput = (event) => {
